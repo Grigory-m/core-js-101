@@ -53,8 +53,10 @@ function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(/* date */) {
-  throw new Error('Not implemented');
+function isLeapYear(date) {
+  const leap = new Date(Date.parse(date)).getFullYear();
+  if (leap % 4 === 0 && leap !== 1900) return true;
+  return false;
 }
 
 
@@ -73,18 +75,8 @@ function isLeapYear(/* date */) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(startDate, endDate) {
-  let hours = `${endDate.getHours() - startDate.getHours()}`;
-  let minutes = `${endDate.getMinutes() - startDate.getMinutes()}`;
-  let seconds = `${endDate.getSeconds() - startDate.getSeconds()}`;
-  let milliseconds = `${endDate.getUTCMilliseconds() - startDate.getUTCMilliseconds()}`;
-  if (minutes.length === 1) minutes = `0${minutes}`;
-  if (hours.length === 1) hours = `0${hours}`;
-  if (seconds.length === 1) seconds = `0${seconds}`;
-  if (milliseconds.length === 1) milliseconds = `00${milliseconds}`;
-  if (milliseconds.length === 2) milliseconds = `0${milliseconds}`;
-
-  return `${hours}:${minutes}:${seconds}.${milliseconds}`;
+function timeSpanToString(/* startDate, endDate */) {
+  throw new Error('Not implemented');
 }
 
 
