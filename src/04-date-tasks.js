@@ -111,9 +111,8 @@ function angleBetweenClockHands(date) {
   if (hours < 0) hours += 24;
   if (hours > 12) hours -= 12;
   const minutes = new Date(date).getMinutes();
-  const deg = Math.abs(0.5 * (60 * hours - 11 * minutes));
-  const result = (deg > 180) ? (deg - 180) * (Math.PI / 180) : deg * (Math.PI / 180);
-  return result;
+  const result = Math.abs(30 * hours - 5.5 * minutes) * (Math.PI / 180);
+  return result > Math.PI ? result - Math.PI : result;
 }
 
 
