@@ -109,7 +109,7 @@ function timeSpanToString(startDate, endDate) {
 function angleBetweenClockHands(date) {
   let hours = new Date(date).getHours() - 3;
   if (hours < 0) hours += 24;
-  if (hours > 12) hours -= 12;
+  hours %= 12;
   const minutes = new Date(date).getMinutes();
   const result = Math.abs(30 * hours - 5.5 * minutes) * (Math.PI / 180);
   return result > Math.PI ? result - Math.PI : result;
